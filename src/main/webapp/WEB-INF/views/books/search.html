@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<br><br>
+Введите запрос поиска:
+<form th:method="POST" th:action="@{/books/search}">
+    <fieldset>
+        <input type="text" name="searchString"/>
+        <input type="submit" value="Подтвердить">
+    </fieldset>
+</form>
+<div th:if="${!foundBooks.isEmpty()}">
+    <p th:each="x, state : ${foundBooks}">
+        <a th:href="@{/books/{id}(id=${x.getId()})}" th:text="${x.getName} + ', ' + ${x.getAuthor()} + ', ' + ${x.getYear()}">user</a>
+</p>
+</div>
+</body>
+</html>

@@ -8,8 +8,14 @@
 <p th:each="x, state : ${books}">
     <a th:href="@{/books/{id}(id=${x.getId()})}" th:text="${x.getName} + ', ' + ${x.getAuthor()} + ', ' + ${x.getYear()}">user</a>
 </p>
-<br>
+<br><hr>
+<a th:href="@{/books?sort_by_year=true}" th:text="'Отсортировать по году'"></a>
+<br><br><hr>
+<a th:href="@{/books?page=0&per_page=2&sort_by_year=true}" th:text="'Отсортировать по году и разбить на стринцы по 2 книги'"></a>
+<br><br><hr>
+<a th:href="@{/books?page=0&per_page=2}" th:text="'Разбить на стринцы по 2 книги'"></a>
+<br><br>
 <hr>
-<a th:href="@{/books/new}">Добавить книгу</a>
+<a style="color: cornflowerblue" th:href="@{/books/new}">Добавить книгу</a>
 </body>
 </html>
